@@ -1,13 +1,56 @@
+import { link } from 'fs';
+import { text } from 'stream/consumers';
 import type { Config } from 'tailwindcss';
 
 const config: Config ={
-    darkMode: ['class'],
+    darkMode: 'selector',
     content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+		colors: {
+			transparent: 'transparent',
+			white: 'hsl(0, 0%, 100%)', // white
+			faintText: 'hsl(0, 0%, 56%)', // grayish black
+			softWhite: 'hsl(0, 0%, 98%)', // very light grayish white
+
+			textPrimary: 'hsl(0, 0%, 13%)', // very dark grayish black
+			textSecondary: 'hsl(0, 0%, 46%)', // grayish black
+
+			bgPrimary: 'hsl(0, 0%, 92%)', // very light grayish white
+			bgSecondary: 'hsl(0, 0%, 100%)', // white
+
+			buttonPrimary: 'hsl(111, 75%, 29%)', // dark green
+			buttonPrimaryText: 'hsl(0 0% 98%)', // light grayish white
+
+			buttonSecondary: 'hsl(0, 0%, 13%)', // very dark grayish black
+			buttonSecondaryText: 'hsl(0 0% 98%)', // very light grayish white
+
+			linkSecondary: 'hsla(209, 87%, 52%)', // light blue
+			softRed: 'hsl(0, 70%, 70%)', // soft red
+
+			bdrPrimary: 'hsl(0, 0%, 82%)', // very light grayish white
+
+			facebook: 'hsl(208, 92%, 53%)', // facebook blue
+			twitter: 'hsl(203, 89%, 53%)', // twitter blue
+			instagram: 'hsl(329, 70%, 58%)', // instagram pink
+			youtube: 'hsl(0, 100%, 50%)', // youtube red
+		},
+		fontFamily: {
+			Inter: ['Inter', 'sans-serif'],
+			Helvetica: ['Helvetica', 'Arial', 'sans-serif'],
+			Poppins: ['Poppins', 'sans-serif'],
+		},
   	extend: {
+			screens: {
+				larger: '960px' // screens 960px and larger
+			},
+			fontWeight: {
+				normal: '400',
+				bold: '700',
+				bolder: '900'
+			},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
