@@ -21,7 +21,7 @@
     --muted-foreground: 0 0% 45.1%; /* dark gray */
     --accent: 0 0% 96.1%; /* very light gray */
     --accent-foreground: 0 0% 9%; /* very dark gray */
-    --destructive: 0 84.2% 60.2%; /* light red */
+    --destructive: 0 84.2% 55.2%; /* light red */
     --destructive-foreground: 0 0% 98%; /* very light gray */
     --border: 0 0% 89.8%; /* light gray */
     --input: 0 0% 89.8%; /* light gray */
@@ -129,12 +129,10 @@
   }
   .linkHoverSecondary {
     @apply hover:text-linkSecondary
-    hover:border-b-2
-    hover:border-linkSecondary
+    hover:underline
     active:text-linkSecondary
-    active:border-b-2
-    active:border-linkSecondary
-    border-b border-transparent ;
+    active:underline
+    /* border-b border-transparent ; */
   }
 
   .smoothScale {
@@ -154,7 +152,39 @@
   }
 
   .authBox {
-    @apply w-[95%] md:w-[80%] lg:w-[50%]
+    @apply w-[330px] md:w-[550px]
     /* width: clamp(400px, 50%, 600px); */
+  }
+
+  .tag {
+    @apply px-3 py-2
+    rounded-md
+    bg-accent
+    text-accent-foreground
+    text-xs
+  }
+
+  .verified {
+    @apply px-2 py-1
+    rounded-md
+    bg-softGreen
+    text-darkGray
+    text-xs
+  }
+
+  .unverified {
+    @apply px-2 py-1
+    rounded-md
+    bg-verySoftRed
+    text-darkGray
+    text-xs
+  }
+
+  .incomplete {
+    @apply px-2 py-1
+    rounded-md
+    bg-softOrange
+    text-darkGray
+    text-xs
   }
 }

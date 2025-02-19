@@ -6,7 +6,7 @@ function Footer() {
   const date = new Date();
   return (
     <>
-      <footer className="p-16 bg-bgSecondary text-textSecondary grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mt-12">
+      <footer className="p-12 bg-bgSecondary text-textSecondary grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mt-12">
         <div className=''>
         <Link to='/'><span className="font-bold font-Poppins text-4xl relative bottom-1 text-textPrimary">cync</span></Link>
         </div>

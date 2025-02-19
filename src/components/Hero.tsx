@@ -2,20 +2,32 @@ import SearchBar from "./SearchBar";
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 import { useAuthenticationStore } from "../stores"
+import InputField from "./ui/input-fields";
+import { useForm } from "react-hook-form";
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod';
 
 
+const schema = z.object({
+  selectedOption: z.string().nonempty('Please select an option'),
+})
+  
 function Hero() {
-  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+  // const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const { isAuthenticated } = useAuthenticationStore();
 
+  const { control, formState } = useForm({
+    resolver: zodResolver(schema),
+    mode: 'onChange',
+  });
+  const { errors } = formState;
 
-  const toggleDropdown = (): void => {
-    setDropdownOpen(!dropdownOpen);
-  }
+
+ 
 
   return (
     <>
-      <div className="bg-bgSecondary mx-8 my-3 p-10 rounded-3xl flex justify-between gap-20 items-center">
+      <div className="bg-bgSecondary mx-8 my-3 px-10 py-4 rounded-3xl flex justify-between gap-20 items-center">
         <div>
           {
             isAuthenticated ?
@@ -26,24 +38,22 @@ function Hero() {
         </div>
 
         <div className="grid gap-10 px-12">
-          <div className="flex gap-3">
-            <div className="w-max bg-buttonPrimary text-white flex items-center pl-4 gap-5 rounded-tl-xl rounded-bl-xl rounded-tr-md rounded-br-md p-3 cursor-pointer" onClick={toggleDropdown}>
-              <div className="grid">
-                <span className="text-xs text-buttonPrimaryText">Pick a location</span>
-                <span className="text-lg">My Location</span>
-              </div>
-              {
-                dropdownOpen ?
-                  <ChevronUp />
-                :
-                  <ChevronDown />
-              }
-            </div>
-            <div className="flex-[2] grid align-center">
-              <SearchBar placeholder='Looking for ...' style='w-full bg-bgPrimary border border-primary rounded-2xl' iconColor='#222'/>
-            </div>
+          <div className="flex h-20 items-center gap-5 justify-between">
+            <InputField
+              type='dropdown'
+              depCompFile='select.tsx'
+              labelFor='selectedOption'
+              labelClass=''
+              placeholder='Pick a location'
+              customClass = 'min-w-44 h-full w-max outline-none bg-transparent border-none font-Helvetica font-medium text-lg bg-buttonPrimary text-white rounded-tl-xl rounded-bl-xl font-medium rounded-tr-sm rounded-br-sm py-4 px-5 mt-5'
+              groupInputs={[]}
+              subLabelCustomClass='text-xl'
+              optionsCustomClass='focus:bg-Green-200'
+              registerControl={control}
+            />
+            <SearchBar placeholder='Looking for ...' style='w-full bg-bgPrimary border border-primary rounded-xl' iconColor='#222'/>
           </div>
-          <h1 className="text-center font-Helvetica px-5 font-bold leading-snug text-5xl">
+          <h1 className="text-center font-Helvetica px-5 font-bold leading-snug text-[40px]">
             { isAuthenticated ? 
               'Connecting You to the Right Experts in Just a Few Clicks.' 
             : 
