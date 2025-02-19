@@ -96,7 +96,7 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(function InputF
 
   return (
     <>
-      <div className={`mb-5 ${wrapperClass}`}>
+      <div className={`${singleLineFields.includes(type) && 'mb-5'} ${wrapperClass}`}>
         { label && <label htmlFor={labelFor} className={labelClass}>{label} {labelExtra}</label> }
         {
         type && singleLineFields.includes(type) ?
