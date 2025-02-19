@@ -16,14 +16,10 @@ function Hero() {
   // const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const { isAuthenticated } = useAuthenticationStore();
 
-  const { control, formState } = useForm({
+  const { control } = useForm({
     resolver: zodResolver(schema),
     mode: 'onChange',
   });
-  const { errors } = formState;
-
-
- 
 
   return (
     <>
