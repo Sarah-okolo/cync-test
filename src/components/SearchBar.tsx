@@ -40,6 +40,7 @@ function SearchBar (props: SearchBarProps) {
     clearIconRef.current.style.visibility = "hidden";
     }
     setSearchInput('');
+    console.log(searchInput);
   }
 
 

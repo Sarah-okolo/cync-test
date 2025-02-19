@@ -1,4 +1,4 @@
-import { useAuthenticationStore } from "../stores"
+// import { useAuthenticationStore } from "../stores"
 import Header from "../components/Header";
 import Hero from '../components/Hero'
 import Sidebar from "../components/Sidebar";
@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 
 
 function Explore_page() {
-  const { isAuthenticated } = useAuthenticationStore();
+  // const { isAuthenticated } = useAuthenticationStore();
 
   return (
     <>

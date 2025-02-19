@@ -22,7 +22,7 @@ const formSchema = z.object({
 });
 
 function Signup() {
-  const [suPwVisible, setSuPwVisible] = useState(false);
+  // const [suPwVisible, setSuPwVisible] = useState(false);
   // const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [isSendingOtp, setIsSendingOtp] = useState<boolean>(false);
   const [otpValidity, setOtpValidity] = useState<string>('');
