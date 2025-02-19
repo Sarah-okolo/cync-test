@@ -1,6 +1,4 @@
 import SearchBar from "./SearchBar";
-// import { ChevronDown, ChevronUp } from 'lucide-react';
-// import { useState } from 'react';
 import { useAuthenticationStore } from "../stores"
 import InputField from "./ui/input-fields";
 import { useForm } from "react-hook-form";
@@ -13,7 +11,6 @@ const schema = z.object({
 })
   
 function Hero() {
-  // const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const { isAuthenticated } = useAuthenticationStore();
 
   const { control } = useForm({
@@ -71,5 +68,4 @@ function Hero() {
     </>
   )
 }
-
 export default Hero
