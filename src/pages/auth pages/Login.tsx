@@ -32,10 +32,8 @@ function Login() {
   const { isAuthenticated, setUserAuthentication } = useAuthenticationStore();
   const navigate = useNavigate();  
   
-
-
   // RHF control
-  const { register, handleSubmit, formState, trigger } = useForm<z.infer<typeof formSchema>>({
+  const { register, handleSubmit, formState, trigger, control } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     mode: 'onChange',
   });
@@ -135,6 +133,19 @@ function Login() {
             <p className=" font-bold text-center mt-3 text-lg mb-3 text-textPrimary">Login with your email</p>
 
             <form onSubmit={handleSubmit(onSubmit)}>
+            <InputField
+              type='dropdown'
+              depCompFile='select.tsx'
+              labelFor='selectedOption'
+              labelClass=''
+              placeholder='Pick a location'
+              customClass = 'min-w-44 h-full w-max outline-none bg-transparent border-none font-Helvetica font-medium text-lg bg-buttonPrimary text-white rounded-tl-xl rounded-bl-xl font-medium rounded-tr-sm rounded-br-sm py-4 px-5 mt-5'
+              groupInputs={[]}
+              subLabelCustomClass='text-xl'
+              optionsCustomClass='focus:bg-Green-200'
+              registerControl={control}
+            />
+            
               <InputField
                 type='email'
                 // label='Email'
